@@ -1,0 +1,29 @@
+with "/opt/ada/2021/share/gpr/linux_gpio.gpr";
+with "gnatcoll_syslog.gpr";
+with "/opt/ada/2021/share/gpr/adabase.gpr";
+
+project Smartpower is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Main use ("smartpower.adb");
+   for Languages use ("Ada", "C");
+
+   package Builder is
+      for Switches ("ada") use ("-s");
+   end Builder;
+
+   package Compiler is
+      for Switches ("ada") use ("-gnat12", "-gnatVcdefimoprst", "-gnatw.a.b.c.d.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.zcdfghijklmopqrtuvwxyz", "-gnatyABCIOSabcdefhiklnoprstux");
+   end Compiler;
+
+   package Ide is
+      for Vcs_Kind use "git";
+   end Ide;
+
+   package Linker is
+      for Switches ("ada") use ("-lmariadb");
+   end Linker;
+
+end Smartpower;
+
